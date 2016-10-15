@@ -2,20 +2,21 @@ package com.empleartec.redsocial.redsocial;
 
 public class Comentario {
 	
-	private long ID;
-	private String txt;
+	private long idUser;
+	private String texto;
 	
-	public String getTxt() {
-		return txt;
+	public long getIdUser() {
+		return idUser;
 	}
-	public void setTxt(String txt) {
-		this.txt = txt;
+	public void setIdUser(long idUser) {
+		this.idUser = idUser;
 	}
-	public long getID() {
-		return ID;
+	public String getTexto() {
+		return texto;
 	}
-	public void setID(long iD) {
-		ID = iD;
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 	
+
 }
