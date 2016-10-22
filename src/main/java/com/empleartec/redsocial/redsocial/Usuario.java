@@ -20,6 +20,7 @@ public class Usuario  implements Comparable<Usuario>{
 		this.edad = edad;
 		this.pw = pw;
 		this.email = email;
+		this.muroUsuario = new Muro();
 		ID++;
 	}
 //geters and setters

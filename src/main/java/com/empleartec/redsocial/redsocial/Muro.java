@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Muro {
 	
 	private List<Publicacion> publicaciones = new ArrayList<Publicacion>();
-
+	
 	public List<Publicacion> getPublicaciones() {
 		return publicaciones;
 	}
