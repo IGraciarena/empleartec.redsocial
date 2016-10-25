@@ -109,5 +109,5 @@ public class Registrar {
 	public void setTextField_2(JTextField textField_2) {
 		this.textField_2 = textField_2;
 	}
-
+	
 }

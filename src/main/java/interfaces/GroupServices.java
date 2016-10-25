@@ -1,8 +1,10 @@
 package interfaces;
 
+import com.empleartec.redsocial.redsocial.*;
+
 public interface GroupServices {
 	
-	public void crearGrupo();
+	public void crearGrupo(Datos datos);
 	public void agregarParticipantes();
 	public void eliminarParticipantes();
 	public void buscarUsuario();

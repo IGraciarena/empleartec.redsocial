@@ -3,57 +3,60 @@ package com.empleartec.redsocial.redsocial;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class Datos{
 
+	//ATRIBUTOS
 	private List <Usuario> usuarios = new ArrayList<Usuario>();
-	private List <Muro> murosDeUsuarios = new ArrayList <Muro>();
-	private List <Publicacion> publicaciones = new ArrayList <Publicacion>();
 	private List <Grupo> grupos = new ArrayList <Grupo>();
+	private int indexLogin;
 	
-	public Datos(/*List<Usuario> usuarios,List<Muro>muroDeUsuarios,List <Publicacion> publicaciones,List <Grupo> grupos*/) {
-		super();
-		/*this.usuarios = usuarios;
-		this.murosDeUsuarios = muroDeUsuarios;
-		this.publicaciones = publicaciones;
-		this.grupos = grupos;*/
-		
+	//CONSTRUCTOR
+	public Datos() {
+		super();	
 	}
 	
-	
+	//SETTERS Y GETTERS
 	public List <Usuario> getUsuarios() {
 		return usuarios;
 	}
+	
+	public void setListaUsuarios(List<Usuario> usuarios){
+		this.usuarios = usuarios;
+	}
+	
 	public void setUsuarios(Usuario usuario) {
-		this.usuarios.add(usuario);
+		int i;
+		for ( i=0; i < usuarios.size(); i++){
+			if (this.usuarios.get(i).compareTo(usuario) == 0){		//compara usuarios por nombre y email para saber si lo modifica o agrega
+				this.usuarios.remove(i);									
+				this.usuarios.add(i, usuario);						//elimina usuario y lo agrega modificado
+				return;
+			}
+		}
+		
+		if (i == usuarios.size()){									//Si no está en la lista de usuarios lo agrega
+			this.usuarios.add(usuario);
+		}
+		
 	}
-
-	public List<Muro> getMurosDeUsuarios() {
-		return murosDeUsuarios;
-	}
-
-
-	public void setMurosDeUsuarios(int index, Muro muroUsuario) {
-		this.murosDeUsuarios.add(index, muroUsuario);
-	}
-
-
-	public List<Publicacion> getPublicaciones() {
-		return publicaciones;
-	}
-
-
-	public void setPublicaciones(List<Publicacion> publicaciones) {
-		this.publicaciones = publicaciones;
-	}
-
-
+	
 	public List<Grupo> getGrupos() {
 		return grupos;
 	}
 
 
-	public void setGrupos(List<Grupo> grupos) {
-		this.grupos = grupos;
+	public void setGrupos(Grupo grupo) {
+		this.grupos.add(grupo);
+	}
+
+	public int getIndexLogin() {
+		return indexLogin;
+	}
+
+	public void setIndexLogin(int indexLogin) {
+		this.indexLogin = indexLogin;
 	}
 	
 	

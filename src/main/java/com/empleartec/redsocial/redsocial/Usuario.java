@@ -7,34 +7,36 @@ import java.util.List;
 public class Usuario  implements Comparable<Usuario>{
 	
 //Atributos
-	private long ID = 0;
 	private String pw;
 	private String nombre;
 	private int edad;
 	private String email;
 	private Muro muroUsuario;
+	private List<Usuario> seguidores = new ArrayList<Usuario>();
 	private List<Usuario> amigos = new ArrayList<Usuario>();
-//constructor	
+
+	//constructor	
 	public Usuario(String nombre,int edad,String pw,String email){
 		this.nombre = nombre;
 		this.edad = edad;
 		this.pw = pw;
 		this.email = email;
 		this.muroUsuario = new Muro();
-		ID++;
 	}
+	
 //geters and setters
+	
 	public String getEmail() {
 		return email;
 	}
+	public List<Usuario> getSeguidores() {
+		return seguidores;
+	}
+	public void setSeguidores(Usuario seguidor) {
+		this.seguidores.add(seguidor);
+	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public long getID() {
-		return ID;
-	}
-	public void setID(long iD) {
-		ID = iD;
 	}
 	public String getPw() {
 		return pw;
@@ -63,13 +65,19 @@ public class Usuario  implements Comparable<Usuario>{
 	public List<Usuario> getAmigos() {
 		return amigos;
 	}
-	public void setAmigos(Usuario amigo) {
-		amigos.add(amigo);
-	}
-
-	@Override
-	public int compareTo(Usuario o){
-		return this.email.compareTo(o.getEmail());
+	public void setAmigos(Usuario amigo, boolean agregar) {     //agregar es true si de agrega un elemento. False si elimina elemento. 
+		if (agregar) {									
+			amigos.add(amigo);
+		} else {
+			amigos.remove(amigo);
+		}
+		
 	}
 	
+	@Override 
+	public int compareTo(Usuario o){
+		if (this.nombre.compareTo(o.getNombre()) == 0){     //compara nombre
+			return this.pw.compareTo(o.getEmail());			//compara email
+		}
+	}
 }

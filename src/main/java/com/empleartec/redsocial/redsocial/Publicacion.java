@@ -5,15 +5,16 @@ import java.util.List;
 
 public class Publicacion {
 	
+	//atributos
 	private String texto;
 	private int meGusta;
-	
-	
 	private List<Comentario> comentarios = new ArrayList<Comentario>();
 	
+	//constructor
 	public Publicacion (){
 	}
 	
+	//geters y seters
 	public String getTexto() {
 		return texto;
 	}

@@ -10,7 +10,13 @@ public class Grupo {
 	private List<Usuario> participantes = new ArrayList<Usuario>();
 	private Muro muroGrupo;
 	private String nombre;
+
 	
+//Constructor
+	public Grupo(Usuario creador, String nombre){
+		this.creador = creador;
+		this.nombre = nombre;
+	}
 //getters and setters
 	public Usuario getCreador() {
 		return creador;
